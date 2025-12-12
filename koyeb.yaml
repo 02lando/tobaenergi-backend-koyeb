@@ -1,0 +1,10 @@
+services:
+  - name: plts-backend
+    env:
+      PYTHONUNBUFFERED: "1"
+    ports:
+      - port: 5000
+        protocol: http
+    builder: python
+    run:
+      command: gunicorn app:app --bind 0.0.0.0:5000 --timeout 120
